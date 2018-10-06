@@ -1,0 +1,22 @@
+<h2><p><font size="9" color="yellow"><b>Our Products</b></font></p></h2>
+
+<div>
+  <label><b><font size="5" color="yellow">Product name:</font></b>
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      
+      <span class="badge badge-danger">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero"
+      (click)="delete(hero)">x</button>
+  </li>
+</ul>
